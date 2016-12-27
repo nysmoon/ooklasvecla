@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require tether
+//= require bootstrap/dist/js/bootstrap.min
+//= require wow/dist/wow.min
+//= require isotope.min.js
 //= require turbolinks
+//= require theme
 //= require_tree .
