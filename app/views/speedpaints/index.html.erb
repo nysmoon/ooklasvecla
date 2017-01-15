@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Speedpaints</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th>Video url</th>
+      <th>Creation date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @speedpaints.each do |speedpaint| %>
+      <tr>
+        <td><%= speedpaint.name %></td>
+        <td><%= speedpaint.description %></td>
+        <td><%= speedpaint.image_url %></td>
+        <td><%= speedpaint.video_url %></td>
+        <td><%= speedpaint.creation_date %></td>
+        <td><%= link_to 'Show', speedpaint %></td>
+        <td><%= link_to 'Edit', edit_speedpaint_path(speedpaint) %></td>
+        <td><%= link_to 'Destroy', speedpaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Speedpaint', new_speedpaint_path %>

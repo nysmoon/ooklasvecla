@@ -1,0 +1,1 @@
+json.array! @speedpaints, partial: 'speedpaints/speedpaint', as: :speedpaint

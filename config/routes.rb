@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  resources :roles
+  resources :users
+  resources :speedpaints
+  
   get 'welcome/index'
   
   root 'welcome#index'

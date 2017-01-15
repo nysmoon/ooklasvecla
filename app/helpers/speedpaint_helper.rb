@@ -1,0 +1,2 @@
+module SpeedpaintHelper
+end

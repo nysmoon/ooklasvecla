@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @speedpaint.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @speedpaint.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @speedpaint.image_url %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <%= @speedpaint.video_url %>
+</p>
+
+<p>
+  <strong>Creation date:</strong>
+  <%= @speedpaint.creation_date %>
+</p>
+
+<%= link_to 'Edit', edit_speedpaint_path(@speedpaint) %> |
+<%= link_to 'Back', speedpaints_path %>

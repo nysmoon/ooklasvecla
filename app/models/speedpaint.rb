@@ -1,0 +1,2 @@
+class Speedpaint < ApplicationRecord
+end
