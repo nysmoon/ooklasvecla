@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :socials
+  resources :arts
   resources :roles
   resources :users
   resources :speedpaints

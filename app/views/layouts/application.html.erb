@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ooklasvecla</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title><%= full_title(yield(:title)) %></title>
+	<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+	<!-- Start wrapper -->
+	<div class="wrapper">
+		<div class="col-md-12">
+			<!-- Header -->
+			<div class="brand"> <%= yield(:title) %>
+				<div class="title"> - young artist -  </div>
+			</div>
+			
+			<!-- Navigation -->
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+					<div class="navbar-brand"><a href="#">Ookla Svecla</a>
+						<div class="title"> - young artist - </div>
+					</div>
+				</div>
+			
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class=<%= 'active' if current_page?(root_path) %>>
+							<%= link_to 'Home'.html_safe, root_path, method: :get %>
+						</li>
+						<li class=<%= 'active' if current_page?(arts_path) %>>
+							<%= link_to 'Art'.html_safe, arts_path, method: :get %>
+						</li>
+						<li class=<%= 'active' if current_page?(speedpaints_path) %>>
+							<%= link_to 'Speedpaints'.html_safe, speedpaints_path, method: :get %>
+						</li>
+						<li class=<%= 'active' if current_page?(socials_path) %>>
+							<%= link_to 'Connect'.html_safe, socials_path, method: :get %>
+						</li>
+					</ul>
+				</div>
+				<!-- /navbar-collapse -->
+			</nav>
+			<!-- End nav -->
+
+			<%= yield %>
+
+		</div>
+		<!-- End col-md-12 -->
+
+	</div>
+	<!-- End wrapper -->
+		
+</body>
 </html>
