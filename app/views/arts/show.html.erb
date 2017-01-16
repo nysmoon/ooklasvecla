@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @art.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @art.description %>
+</p>
+
+<p>
+<p>
+  <strong>Creation date:</strong>
+  <%= @art.creation_date %>
+</p>
+
+<%= image_tag @art.image_url.to_s %>
+
 <%= link_to 'Edit', edit_art_path(@art) %> |
 <%= link_to 'Back', arts_path %>
