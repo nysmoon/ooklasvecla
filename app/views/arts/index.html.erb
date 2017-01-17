@@ -23,104 +23,20 @@
 
                <div class="row">
                  <div class="portfolio-items">
+									 <% @arts.each do |art| %>
                     <div class="portfolio-item summer col-xs-12 col-sm-4 col-md-4">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image1.jpg" alt="">
+													<%= image_tag art.image_url.to_s %>
+                            <!-- <img class="img-responsive" src="img/image1.jpg" alt=""> -->
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                <a href="img/image1.jpg" data-lightbox="image-1" data-title="Photo1">                                View</a>
+																	<%= link_to 'Show', art %>
+                                <!-- <a href="img/image1.jpg" data-lightbox="image-1" data-title="Photo1">                                View</a> -->
                                 </div> 
                             </div>
                         </div>
                     </div><!-- /portfolio-item -->
-
-                    <div class="portfolio-item autumn col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image2.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                 <a href="img/image2.jpg" data-lightbox="image-1" data-title="Photo2">                                 View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!-- /portfolio-item -->
-
-                    <div class="portfolio-item spring col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image3.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image3.jpg" data-lightbox="image-1" data-title="Photo3">                                View</a>
-                                </div> 
-                            </div>
-                        </div>        
-                    </div><!-- /portfolio-item -->
-
-                    <div class="portfolio-item spring col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image4.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image4.jpg" data-lightbox="image-1" data-title="Photo4">                                View</a>
-                                </div> 
-                            </div>
-                        </div>           
-                    </div><!-- /portfolio-item -->
-          
-                    <div class="portfolio-item summer col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image5.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image5.jpg" data-lightbox="image-1" data-title="Photo5">                                View</a>
-                                </div> 
-                            </div>
-                        </div>      
-                    </div><!-- /portfolio-item -->
-
-                    <div class="portfolio-item summer col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image6.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image6.jpg" data-lightbox="image-1" data-title="Photo6">                                View</a>
-                                </div> 
-                            </div>
-                        </div>         
-                    </div><!-- /portfolio-item -->
-
-                    <div class="portfolio-item autumn col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image7.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image7.jpg" data-lightbox="image-1" data-title="Photo7">                                View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!-- /portfolio-item -->
-
-                    <div class="portfolio-item autumn col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image8.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image8.jpg" data-lightbox="image-1" data-title="Photo8">                                View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!-- /portfolio-item -->
-                    
-                    <div class="portfolio-item spring col-xs-12 col-sm-4 col-md-4">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="img/image9.jpg" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                <a href="img/image9.jpg" data-lightbox="image-1" data-title="Photo9">                                View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!-- /portfolio-item -->
+									    <% end %>
                  </div><!-- /portfolio-items -->
                </div><!-- /row -->
                
@@ -140,9 +56,9 @@
   <tbody>
     <% @arts.each do |art| %>
       <tr>
-        <td><%= link_to 'Show', art %></td>
+        <!-- <td><%= link_to 'Show', art %></td>
         <td><%= link_to 'Edit', edit_art_path(art) %></td>
-        <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', art, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

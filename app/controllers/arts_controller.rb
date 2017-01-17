@@ -5,7 +5,6 @@ class ArtsController < ApplicationController
   # GET /arts.json
   def index
     @arts = Art.all
-    page_title = 'Art Works'
   end
 
   # GET /arts/1
