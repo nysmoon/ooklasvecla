@@ -22,4 +22,6 @@
 
 <br>
 
+<% if logged_in? && current_user.role_id == 1 %> 
 <%= link_to 'New Social', new_social_path %>
+<% end %>

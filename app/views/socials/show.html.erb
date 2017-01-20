@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if logged_in? && current_user.role_id == 1 %> 
 <%= link_to 'Edit', edit_social_path(@social) %> |
+<% end %>
 <%= link_to 'Back', socials_path %>

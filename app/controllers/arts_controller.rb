@@ -1,4 +1,5 @@
 class ArtsController < ApplicationController
+  before_filter :auth_redirect, only: [:new, :edit]
   before_action :set_art, only: [:show, :edit, :update, :destroy]
 
   # GET /arts

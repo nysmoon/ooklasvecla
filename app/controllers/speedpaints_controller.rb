@@ -1,4 +1,5 @@
 class SpeedpaintsController < ApplicationController
+  before_filter :auth_redirect, only: [:new, :edit]
   before_action :set_speedpaint, only: [:show, :edit, :update, :destroy]
 
   # GET /speedpaints

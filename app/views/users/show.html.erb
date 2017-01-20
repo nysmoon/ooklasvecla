@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12  col-sm-10 col-md-6 col-lg-6 col-sm-offset-1 col-md-offset-3 col-lg-offset-3">
+			<p>
+				<strong>Username:</strong>
+				<%= @user.username %>
+			</p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+			<p>
+				<strong>Email:</strong>
+				<%= @user.email %>
+			</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @user.role.name %>
-</p>
+			<p>
+				<strong>Role:</strong>
+				<%= @user.role.name %>
+			</p>
+		</div>
+	</div>
+</div>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -1,4 +1,5 @@
 class SocialsController < ApplicationController
+  before_filter :auth_redirect, only: [:new, :edit]
   before_action :set_social, only: [:show, :edit, :update, :destroy]
 
   # GET /socials

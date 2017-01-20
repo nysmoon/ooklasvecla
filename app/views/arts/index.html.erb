@@ -27,11 +27,9 @@
                     <div class="portfolio-item summer col-xs-12 col-sm-4 col-md-4">
                         <div class="recent-work-wrap">
 													<%= image_tag art.image_url %>
-                            <!-- <img class="img-responsive" src="img/image1.jpg" alt=""> -->
                             <div class="overlay">
                                 <div class="recent-work-inner">
-																	<%= link_to 'Show', art %>
-                                <!-- <a href="img/image1.jpg" data-lightbox="image-1" data-title="Photo1">                                View</a> -->
+																	<%= link_to 'View', art %>
                                 </div> 
                             </div>
                         </div>
@@ -65,5 +63,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Art', new_art_path %>
+<% if logged_in? && current_user.role_id == 1 %> 
+	<%= link_to 'New Art', new_art_path %>
+<% end %>
