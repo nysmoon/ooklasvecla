@@ -1,3 +1,7 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12  col-sm-10 col-md-6 col-lg-6 col-sm-offset-1 col-md-offset-3 col-lg-offset-3">
+
 <%= form_for @art, :html => {:multipart => true} do |f| %>
   <% if art.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +15,35 @@
     </div>
   <% end %>
 	
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
+			<div class="form-group">
     <%= f.label :picture %>
-    <%= f.file_field :image %>
-  </div>
+    <%= f.file_field :image, class: "form-control" %>
+			</div>
 
-  <div class="field">
+			<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+			</div>
+
+			<div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :tag %>
+				<%= f.collection_select :tag_id, Tag.all, :id, :name, {:prompt => "Please Select Tag"}, {:class => "form-control"} %>
+			</div>
+
+			<div class="form-group">
     <%= f.label :creation_date %>
-    <%= f.date_select :creation_date %>
-  </div>
+    <%= f.date_select :creation_date, { :discard_day => true}%>
+			</div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+		</div>
+	</div>
+</div>

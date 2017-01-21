@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @art.name %>
@@ -15,6 +13,11 @@
   <strong>Creation date:</strong>
   <%= @art.creation_date %>
 </p>
+<p>
+  <strong>Tags:</strong>
+  <%= @art.tag.name %>
+</p>
+
 
 <%= image_tag @art.image_url.to_s %>
 

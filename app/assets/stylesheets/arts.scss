@@ -1,3 +1,11 @@
 // Place all the styles related to the Arts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.recent-work-wrap {
+	padding: 10px;
+}
+
+.recent-work-wrap > img {
+	height: 250px;
+}

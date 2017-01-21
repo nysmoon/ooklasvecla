@@ -29,8 +29,9 @@ class ArtsController < ApplicationController
 
     respond_to do |format|
       if @art.save
-        format.html { redirect_to @art, notice: 'Art was successfully created.' }
+        format.html { redirect_to @art }
         format.json { render :show, status: :created, location: @art }
+        flash[:success] = "Art was successfully created!"
       else
         format.html { render :new }
         format.json { render json: @art.errors, status: :unprocessable_entity }
@@ -71,6 +72,6 @@ class ArtsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def art_params
       # params.fetch(:art, :name, :description, :creation_date, :image, {})
-      params.require(:art).permit(:name, :description, :creation_date, :image)
+      params.require(:art).permit(:name, :description, :creation_date, :image, :tag_id)
     end
 end
