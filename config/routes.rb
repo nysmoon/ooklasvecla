@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :video_tags
   root 'welcome#index'
   get 'welcome/index'
 

@@ -1,36 +1,39 @@
 <% provide(:title, "Speedpaints") %>
 <% provide(:phrase, "digital art in motion") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Video url</th>
-      <th>Creation date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Start margin -->
+<div class="margin-collection">
+             
+		<!-- Start projects -->
+		<div class="container">
 
-  <tbody>
-    <% @speedpaints.each do |speedpaint| %>
-      <tr>
-        <td><%= speedpaint.name %></td>
-        <td><%= speedpaint.description %></td>
-        <td><%= speedpaint.image_url %></td>
-        <td><%= speedpaint.video_url %></td>
-        <td><%= speedpaint.creation_date %></td>
-        <td><%= link_to 'Show', speedpaint %></td>
-        <td><%= link_to 'Edit', edit_speedpaint_path(speedpaint) %></td>
-        <td><%= link_to 'Destroy', speedpaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+			<ul class="portfolio-filter text-center">
+				<li><a class="btn btn-default active" href="#" data-filter="*">All Collection</a></li>
+				<% VideoTag.all.each do |video_tag| %>
+				<li><a class="btn btn-default" href="#" data-filter=".<%= video_tag.id %>"><%= video_tag.name %></a></li>
+				<% end %>
+			</ul><!--/#portfolio-filter-->
 
-<br>
-
-<% if logged_in? && current_user.role_id == 1 %> 
-<%= link_to 'New Speedpaint', new_speedpaint_path %>
-<% end %>
+			<div class="row">
+				<div class="portfolio-items">
+					<% @speedpaints.each do |speedpaint| %>
+					<div class="portfolio-item <%= speedpaint.video_tag_id %> col-xs-12 col-sm-4 col-md-4">
+						<div class="recent-work-wrap text-center">
+							<%= youtube_video speedpaint.url %>
+						</div>
+						<% if logged_in? && current_user.role_id == 1 %> 
+							<%= link_to 'Edit Speedpaint', edit_speedpaint_path(speedpaint), {class: "btn btn-primary"} %>
+						<% end %>
+					</div><!-- /portfolio-item -->
+					<% end %>
+				</div><!-- /portfolio-items -->
+			</div><!-- /row -->
+               
+		</div><!-- /container -->
+       
+	</div>
+	<!-- End margin -->
+	
+	<% if logged_in? && current_user.role_id == 1 %> 
+	<%= link_to 'New Speedpaint', new_speedpaint_path, {class: "btn btn-success"} %>
+	<% end %>

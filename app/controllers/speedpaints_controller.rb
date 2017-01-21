@@ -70,6 +70,6 @@ class SpeedpaintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speedpaint_params
-      params.require(:speedpaint).permit(:name, :description, :image_url, :video_url, :creation_date)
+      params.require(:speedpaint).permit(:name, :description, :url, :creation_date, :video_tag_id)
     end
 end
