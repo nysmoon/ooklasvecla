@@ -1,5 +1,5 @@
 class SocialsController < ApplicationController
-  before_filter :auth_redirect, only: [:new, :edit]
+  before_filter :auth_redirect
   before_action :set_social, only: [:show, :edit, :update, :destroy]
 
   # GET /socials
@@ -70,6 +70,6 @@ class SocialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def social_params
-      params.fetch(:social, {})
+      params.require(:social).permit(:name, :icon, :url)
     end
 end

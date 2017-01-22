@@ -252,9 +252,9 @@ Navigation and logo styles
 
 	.navbar-nav {
 		display: table;
+		table-layout: fixed;
 		float: none;
 		margin: 0 auto;
-		table-layout: fixed;
 	}
 
 	.navbar-default .navbar-nav > .active > a, 
@@ -413,11 +413,11 @@ Collections page styles
 	padding: 0;
 }
 
-.portfolio-filter > li {
+.socials > li, .portfolio-filter > li {
 	display: inline-block;
 }
 
-.portfolio-filter > li a {
+.socials > li a, .portfolio-filter > li a {
 	background: none repeat scroll 0 0 #FFFFFF;
 	font-size: 1em;
 	font-weight: 400;
@@ -436,7 +436,9 @@ Collections page styles
 }
 
 .portfolio-filter > li a:hover,
-.portfolio-filter > li a.active{
+.portfolio-filter > li a.active,
+.socials > li a:hover,
+.socials > li a.active {
 	color: #898989;
 	background: #e0e0e0;
 	border: 2px solid #dadada;

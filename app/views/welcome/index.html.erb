@@ -1,17 +1,28 @@
 <% provide(:title, "Ookla Svecla") %>
 <% provide(:phrase, "young artist") %>
 
-		<!-- Start main image and the text below -->
+		<ul class="socials text-center">
+			<% Social.all.each do |social| %>
+			<li><a class="btn btn-default" href="<%= social.url %>" target="_blank"><%= social.icon.html_safe %> <%= social.name %></a></li>
+			<% end %>
+			<% if logged_in? && current_user.role_id == 1 %> 
+			<%= link_to 'Manage Socials', socials_path, {class: "btn btn-info"} %>
+			<% end %>
+		</ul><!--/#portfolio-filter-->
+
+
+		<!-- Start main image -->
 		<div class="col-md-12 text-center">
 			<%= image_tag 'main.jpg', :class => "main-img" %>
+		</div>
 
 
 		<!-- Start footer -->
 		<div class="footer col-md-6 col-xs-offset-3">
 			<h5>Copyright 2017
-				<a href="#"><i class="fa fa-facebook icon1"></i></a>
+				<!-- <a href="#"><i class="fa fa-facebook icon1"></i></a>
 				<a href="#"><i class="fa fa-twitter icon1"></i></a>
-				<a href="#"><i class="fa fa-instagram icon1"></i></a>
+				<a href="#"><i class="fa fa-instagram icon1"></i></a> -->
 			</h5>
 		</div>
 		<!-- End footer -->

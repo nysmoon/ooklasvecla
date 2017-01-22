@@ -1,7 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12  col-sm-10 col-md-6 col-lg-6 col-sm-offset-1 col-md-offset-3 col-lg-offset-3">
+
 <%= form_for(video_tag) do |f| %>
   <% if video_tag.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(video_tag.errors.count, "error") %> prohibited this video_tag from being saved:</h2>
+      <h2><%= pluralize(video_tag.errors.count, "error") %> prohibited this speedpaint tag from being saved:</h2>
 
       <ul>
       <% video_tag.errors.full_messages.each do |message| %>
@@ -11,12 +15,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+			<div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+			<div class="actions">
+				<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+					<i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+				<% end %>
+				<%= link_to '<i class="fa fa-floppy-o" aria-hidden="true"></i> Cancel'.html_safe, video_tags_path, {class: "btn btn-danger"} %>
+			</div>
 <% end %>
+		</div>
+	</div>
+</div>
+

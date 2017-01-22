@@ -1,27 +1,37 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Socials") %>
+<% provide(:phrase, "manage social media links") %>
 
-<h1>Socials</h1>
+<!-- Start margin -->
+<div class="margin-collection">
+             
+	<!-- Start projects -->
+	<div class="container">
+		<div class="row text-center">
+			<%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> Add New Media'.html_safe, new_social_path, {class: "btn btn-success"} %>
+		</div>
+		
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th width='20%'>Name</th>
+					<th width='25%'>Icon</th>
+					<th width='25%'>URL</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+			<tbody>
+				<% @socials.each do |social| %>
+				<tr>
+					<td><%= social.name %></td>
+					<td><%= social.icon.html_safe %></td>
+					<td><%= social.url %></td>
+					<td><%= link_to '<i class="fa fa-edit" aria-hidden="true"></i> Edit'.html_safe, edit_social_path(social), {class: "btn btn-primary"} %></td>
+					<td><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i> Delete'.html_safe, social, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to delete ' + social.name + ' tag?' } %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 
-  <tbody>
-    <% @socials.each do |social| %>
-      <tr>
-        <td><%= link_to 'Show', social %></td>
-        <td><%= link_to 'Edit', edit_social_path(social) %></td>
-        <td><%= link_to 'Destroy', social, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if logged_in? && current_user.role_id == 1 %> 
-<%= link_to 'New Social', new_social_path %>
-<% end %>
+	</div>
+</div>

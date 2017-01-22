@@ -29,7 +29,7 @@ class VideoTagsController < ApplicationController
 
     respond_to do |format|
       if @video_tag.save
-        format.html { redirect_to @video_tag, notice: 'Video tag was successfully created.' }
+        format.html { redirect_to video_tags_path, notice: 'Video tag was successfully created.' }
         format.json { render :show, status: :created, location: @video_tag }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class VideoTagsController < ApplicationController
   def update
     respond_to do |format|
       if @video_tag.update(video_tag_params)
-        format.html { redirect_to @video_tag, notice: 'Video tag was successfully updated.' }
+        format.html { redirect_to video_tags_path, notice: 'Video tag was successfully updated.' }
         format.json { render :show, status: :ok, location: @video_tag }
       else
         format.html { render :edit }

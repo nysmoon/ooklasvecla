@@ -1,6 +1,4 @@
-<h1>Editing Video Tag</h1>
+<% provide(:title, @video_tag.name) %>
+<% provide(:phrase, "Edit") %>
 
 <%= render 'form', video_tag: @video_tag %>
-
-<%= link_to 'Show', @video_tag %> |
-<%= link_to 'Back', video_tags_path %>

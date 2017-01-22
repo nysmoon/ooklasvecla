@@ -1,6 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @social.name) %>
+<% provide(:phrase, 'was created') %>
 
-<% if logged_in? && current_user.role_id == 1 %> 
-<%= link_to 'Edit', edit_social_path(@social) %> |
-<% end %>
-<%= link_to 'Back', socials_path %>
+<p>
+  <strong>Name:</strong>
+  <%= @social.name %>
+</p>
+<p>
+  <strong>Icon:</strong>
+  <%= @social.icon.html_safe %>
+</p>
+
+<%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to all tags'.html_safe, socials_path, {class: "btn btn-default"} %>
+
+<%= link_to '<i class="fa fa-edit" aria-hidden="true"></i> Edit'.html_safe, edit_social_path(@social), {class: "btn btn-primary"} %>
+<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i> Delete'.html_safe, @social, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete " + @social.name + " tag?" } %>
