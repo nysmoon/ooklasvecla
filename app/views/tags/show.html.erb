@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @tag.name) %>
+<% provide(:phrase, 'was created') %>
 
 <p>
   <strong>Name:</strong>
   <%= @tag.name %>
 </p>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to all tags'.html_safe, tags_path, {class: "btn btn-default"} %>
+
+<%= link_to '<i class="fa fa-edit" aria-hidden="true"></i> Edit'.html_safe, edit_tag_path(@tag), {class: "btn btn-primary"} %>
+<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i> Delete'.html_safe, @tag, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete " + @tag.name + " tag?" } %>

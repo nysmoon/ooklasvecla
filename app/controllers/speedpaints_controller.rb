@@ -1,7 +1,7 @@
 class SpeedpaintsController < ApplicationController
   before_filter :auth_redirect, only: [:new, :edit]
   before_action :set_speedpaint, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /speedpaints
   # GET /speedpaints.json
   def index
@@ -73,3 +73,5 @@ class SpeedpaintsController < ApplicationController
       params.require(:speedpaint).permit(:name, :description, :url, :creation_date, :video_tag_id)
     end
 end
+
+

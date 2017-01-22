@@ -1,6 +1,8 @@
 <% provide(:title, "Speedpaints") %>
 <% provide(:phrase, "digital art in motion") %>
 
+<p id="notice"><%= notice %></p>
+
 <!-- Start margin -->
 <div class="margin-collection">
              
@@ -12,17 +14,26 @@
 				<% VideoTag.all.each do |video_tag| %>
 				<li><a class="btn btn-default" href="#" data-filter=".<%= video_tag.id %>"><%= video_tag.name %></a></li>
 				<% end %>
+			<% if logged_in? && current_user.role_id == 1 %> 
+			<%= link_to 'Manage Tags', video_tags_path, {class: "btn btn-info"} %>
+			<% end %>
 			</ul><!--/#portfolio-filter-->
+
+		<% if logged_in? && current_user.role_id == 1 %> 
+		<div class="row text-center">
+			<%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> Add New Speedpaint'.html_safe, new_speedpaint_path, {class: "btn btn-success"} %>
+		</div>
+		<% end %>
 
 			<div class="row">
 				<div class="portfolio-items">
 					<% @speedpaints.each do |speedpaint| %>
-					<div class="portfolio-item <%= speedpaint.video_tag_id %> col-xs-12 col-sm-4 col-md-4">
+					<div class="portfolio-item <%= speedpaint.video_tag_id %> col-xs-12 col-sm-4 col-md-4 text-center">
 						<div class="recent-work-wrap text-center">
-							<%= youtube_video speedpaint.url %>
+							<%= youtube_video_index speedpaint.url %>
 						</div>
 						<% if logged_in? && current_user.role_id == 1 %> 
-							<%= link_to 'Edit Speedpaint', edit_speedpaint_path(speedpaint), {class: "btn btn-primary"} %>
+							<%= link_to 'View', speedpaint, {class: "btn btn-primary"} %>
 						<% end %>
 					</div><!-- /portfolio-item -->
 					<% end %>
@@ -33,7 +44,3 @@
        
 	</div>
 	<!-- End margin -->
-	
-	<% if logged_in? && current_user.role_id == 1 %> 
-	<%= link_to 'New Speedpaint', new_speedpaint_path, {class: "btn btn-success"} %>
-	<% end %>

@@ -37,12 +37,15 @@
 
 			<div class="form-group">
     <%= f.label :creation_date %>
-    <%= f.date_select :creation_date, { :discard_day => true}%>
+    <%= f.date_select :creation_date, { :discard_day => true}, class: "form-control" %>
 			</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+			<div class="actions">
+				<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+					<i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+				<% end %>
+				<%= link_to '<i class="fa fa-floppy-o" aria-hidden="true"></i> Cancel'.html_safe, arts_path, {class: "btn btn-danger"} %>
+			</div>
 <% end %>
 		</div>
 	</div>

@@ -1,31 +1,17 @@
-		<!-- Header -->
-		<div class="brand"> Speedpaints
-			<div class="title"> - video collection of my speedpaints -  </div>
-		</div>
+<% provide(:title, @speedpaint.name) %>
+<% provide(:phrase, @speedpaint.description) %>
+<%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to all collections'.html_safe, speedpaints_path, {class: "btn btn-default"} %>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @speedpaint.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @speedpaint.description %>
-</p>
-
-<p>
-  <strong>Video url:</strong>
-  <%= @speedpaint.url %>
-</p>
+<% if logged_in? && current_user.role_id == 1 %> 
+<%= link_to '<i class="fa fa-edit" aria-hidden="true"></i> Edit'.html_safe, edit_speedpaint_path(@speedpaint), {class: "btn btn-primary"} %>
+<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i> Delete'.html_safe, @speedpaint, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete " + @speedpaint.name + " speedpaint?" } %>
+<% end %>
 
 <p>
   <strong>Creation date:</strong>
   <%= @speedpaint.creation_date %>
 </p>
 
-<% if logged_in? && current_user.role_id == 1 %> 
-<%= link_to 'Edit', edit_speedpaint_path(@speedpaint) %> |
-<% end %>
-<%= link_to 'Back', speedpaints_path %>
+<p>
+  <%= youtube_video @speedpaint.url %>
+</p>

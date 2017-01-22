@@ -1,14 +1,17 @@
 
 // Custom bootstrap variables must be set or imported before bootstrap itself.
 @import "bootstrap/dist/css/bootstrap.min";
-@import "theme";
 @import "welcome.scss";
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Qwigley');
-@import "arts";
 
+// Gallery gem
 @import "gallery/responsive/elastislide";
 @import "gallery/responsive";
 @import "gallery/slideshow";
 @import "gallery/galleria/classic";
 @import "gallery/touch_touch";
+
+// Custom
+@import "theme";
+@import "arts";

@@ -1,27 +1,17 @@
-<p>
-  <strong>Name:</strong>
-  <%= @art.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @art.description %>
-</p>
-
-<p>
-<p>
-  <strong>Creation date:</strong>
-  <%= @art.creation_date %>
-</p>
-<p>
-  <strong>Tags:</strong>
-  <%= @art.tag.name %>
-</p>
-
-
-<%= image_tag @art.image_url.to_s %>
+<% provide(:title, @art.name) %>
+<% provide(:phrase, @art.description) %>
+<%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to all collections'.html_safe, arts_path, {class: "btn btn-default"} %>
 
 <% if logged_in? && current_user.role_id == 1 %> 
-<%= link_to 'Edit', edit_art_path(@art) %> |
+<%= link_to '<i class="fa fa-edit" aria-hidden="true"></i> Edit'.html_safe, edit_art_path(@art), {class: "btn btn-primary"} %>
+<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i> Delete'.html_safe, @art, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete " + @art.name + " art?" } %>
 <% end %>
-<%= link_to 'Back', arts_path %>
+
+<p>
+	<strong>Created:</strong>
+	<%= @art.creation_date %>
+</p>
+
+<p>
+	<%= image_tag @art.image_url.to_s %>
+</p>

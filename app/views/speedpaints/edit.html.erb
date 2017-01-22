@@ -1,6 +1,4 @@
-<h1>Editing Speedpaint</h1>
+<% provide(:title, @speedpaint.name) %>
+<% provide(:phrase, "Edit") %>
 
 <%= render 'form', speedpaint: @speedpaint %>
-
-<%= link_to 'Show', @speedpaint %> |
-<%= link_to 'Back', speedpaints_path %>
