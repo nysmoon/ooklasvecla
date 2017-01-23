@@ -1,6 +1,6 @@
 <% provide(:title, @speedpaint.name) %>
 <% provide(:phrase, @speedpaint.description) %>
-<%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to all collections'.html_safe, speedpaints_path, {class: "btn btn-default"} %>
+<%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to all collections'.html_safe, speedpaints_path, class: "btn btn-default", method: :get %>
 
 <% if logged_in? && current_user.role_id == 1 %> 
 <%= link_to '<i class="fa fa-edit" aria-hidden="true"></i> Edit'.html_safe, edit_speedpaint_path(@speedpaint), {class: "btn btn-primary"} %>
